@@ -31,6 +31,15 @@
 */
 
 //CODE HERE
+let pizza = {
+    name: "The Go-to",
+    price: 8.99,
+    category: "entree",
+    popularity: 1,
+    rating: 4.5,
+    tags: ['simple', 'caloric', 'affordable']
+};
+
 
 
 
@@ -43,6 +52,7 @@
 */
 
 //CODE HERE
+console.log(pizza.popularity);
 
 
 /*
@@ -53,6 +63,7 @@
 */
 
 //CODE HERE
+console.log(pizza.tags[1]);
 
 
 /*
@@ -63,6 +74,8 @@
 */
 
 //CODE HERE
+let {price} = pizza;
+console.log(price);
 
 
 /*
@@ -73,6 +86,8 @@
 */
 
 //CODE HERE
+let {category} = pizza;
+console.log(category);
 
 
 //////////////////PROBLEM 3////////////////////
@@ -88,7 +103,48 @@
 */
 
 //CODE HERE
-
+let foodArr = [
+    {
+        name: "The Go-to",
+        price: 14.99,
+        category: "entree",
+        popularity: 1,
+        rating: 4.5,
+        tags: ['pizza', 'caloric', 'affordable']
+    },
+    {
+        name: "The Big-Boi",
+        price: 12.99,
+        category: "entree",
+        popularity: 2,
+        rating: 4.3,
+        tags: ['burger', 'caloric', 'huge']
+    },
+    {
+        name: "The Sunburst",
+        price: 3.99,
+        category: "drink",
+        popularity: 5,
+        rating: 3.9,
+        tags: ['frozen', 'fruit', 'refreshing']
+    },
+    {
+        name: "The Clucker",
+        price: 6.99,
+        category: "appetizer",
+        popularity: 3,
+        rating: 4.2,
+        tags: ['wings', 'savory', 'spicey']
+    },
+    {
+        name: "The Regret",
+        price: 39.99,
+        category: "entree",
+        popularity: 4,
+        rating: 4.0,
+        tags: ['challenge', 'caloric', 'trendy']
+    }
+];
 
 
 //////////////////PROBLEM 4////////////////////
@@ -105,7 +161,8 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(food => food.tags.includes('caloric'));
+//console.log(filteredFood);
 
 
 
@@ -141,7 +198,7 @@
         if it is, return objects whose value for the given
         property is greater than the `number` passed in
 
-        If the type isn't `below`, return objects whose
+        If the type is `below`, return objects whose
         value for the given property is less than the 
         `number` passed in
     
@@ -149,6 +206,13 @@
 */
 
 //CODE HERE
+function filterByProperty(property, number, type) {
+    const filterFoods = foodArr.filter(food => {
+        if (type === 'above') { return food[property] > number; }
+        else { return food[property] < number; }
+    })
+    return filterFoods;
+}
 
 
 /*
@@ -159,3 +223,5 @@
 */
 
 //CODE HERE
+filterByProperty('price', 8, 'above');
+console.log(filterByProperty('price', 8, 'above'));

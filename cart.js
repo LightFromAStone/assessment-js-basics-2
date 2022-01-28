@@ -35,7 +35,8 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((total, nextItem) => total += nextItem.price, 0);
+console.log(summedPrice);
 
 
 //////////////////PROBLEM 2////////////////////
@@ -53,7 +54,14 @@ const cart = [
     decimals, for example: .06 for a 6% tax.
 */
 
-//CODE HERE
+//CODE HERE    
+
+//----- NOTE: coupons are applied before tax is calculated. Instructions make it sound backwards -----//
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    cartTotal -= couponValue;
+    return cartTotal *= (tax + 1);
+}
+//console.log(calcFinalPrice(11, 1, .2));
 
 
 
@@ -79,6 +87,7 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
+    Some of these choices seem self-evident, but I think the customer object should include an array of strings of what was ordered (helps determine what items are most popular, plus kitchen has to know what to make), the number of people in the customers party -Number- (lets the restuarant determine their average party size), table number -Number- (keep track of where each party is located), seated time and leave time -Numbers- (so the restuarant can calculate the average amount of time a customer spends there), the total cost of the orders -Number- (gotta keep track of expenses), and finally a boolean of whether or not the customer paid (to look out for dine-n-dashers).
 
 */
 
@@ -88,3 +97,12 @@ const cart = [
 */
 
 //CODE HERE
+customer = {
+    orders: ['water', 'water', 'water', 'The Regret'],
+    size: 3,
+    table: 6,
+    seated: 1304,
+    departed: 1341,
+    total: 43.29,
+    paid: true
+}
